@@ -1,11 +1,19 @@
 package br.com.productseventsapi.ProductEventApi.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "events")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class EventEntity {
 
     @Id
