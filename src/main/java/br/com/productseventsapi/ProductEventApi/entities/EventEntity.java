@@ -23,10 +23,4 @@ public class EventEntity {
     private LocalDateTime eventHour;
     @Column(name = "place", nullable = false)
     private String eventPlace;
-    @ManyToMany
-    @JoinColumn(name = "user_id")
-    private UserEntity userEntity;
-    @ManyToMany
-    @JoinColumn(name = "product_id")
-    private ProductEntity productEntity;
 }
