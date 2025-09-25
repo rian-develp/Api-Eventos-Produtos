@@ -19,13 +19,13 @@ public class UserEventProduct {
 
     @ManyToOne
     @JoinColumn(name = "event_id")
-    private String eventId;
+    private EventEntity eventId;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private String userId;
+    private UserEntity userId;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
-    private Integer productId;
+    private ProductEntity productId;
 }
