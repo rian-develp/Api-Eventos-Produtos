@@ -21,6 +21,6 @@ public class EventEntity {
     private String id;
     @Column(name = "event_hour", nullable = false, unique = true)
     private LocalDateTime eventHour;
-    @Column(name = "place", nullable = false)
+    @Column(name = "event_place", nullable = false)
     private String eventPlace;
 }
