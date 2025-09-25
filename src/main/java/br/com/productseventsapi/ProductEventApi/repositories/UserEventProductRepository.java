@@ -1,5 +1,6 @@
 package br.com.productseventsapi.ProductEventApi.repositories;
 
+import br.com.productseventsapi.ProductEventApi.dtos.FindUserEventProductDetailsDTO;
 import br.com.productseventsapi.ProductEventApi.entities.UserEventProduct;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -34,5 +35,5 @@ public interface UserEventProductRepository extends JpaRepository<UserEventProdu
             "JOIN products ON products.id = user_event_products.product_id " +
             "WHERE users.id = :id",
             nativeQuery = true)
-    FindUserEventProductDetailsByUserIdDTO findUserEventProductDetails(@Param("id") String id);
+    FindUserEventProductDetailsDTO findUserEventProductDetailsByUserId(@Param("id") String id);
 }
