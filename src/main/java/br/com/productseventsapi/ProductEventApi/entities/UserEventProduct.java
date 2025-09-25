@@ -14,6 +14,9 @@ import lombok.Setter;
 @NoArgsConstructor
 public class UserEventProduct {
 
+    @Column(name = "id")
+    private Integer id;
+
     @ManyToOne
     @JoinColumn(name = "event_id")
     private String eventId;
