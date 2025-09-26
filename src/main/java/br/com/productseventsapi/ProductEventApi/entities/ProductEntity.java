@@ -3,6 +3,8 @@ package br.com.productseventsapi.ProductEventApi.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "products")
 @Getter
@@ -23,5 +25,5 @@ public class ProductEntity {
     private String productDescription;
     @NonNull
     @Column(name = "product_price", nullable = false)
-    private Double productPrice;
+    private BigDecimal productPrice;
 }

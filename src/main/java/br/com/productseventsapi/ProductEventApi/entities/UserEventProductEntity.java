@@ -9,7 +9,7 @@ import lombok.*;
 @Setter
 @RequiredArgsConstructor
 @NoArgsConstructor
-public class UserEventProduct {
+public class UserEventProductEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,13 +18,13 @@ public class UserEventProduct {
     @NonNull
     @ManyToOne
     @JoinColumn(name = "event_id")
-    private EventEntity eventId;
+    private EventEntity event;
     @NonNull
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private UserEntity userId;
+    private UserEntity user;
     @NonNull
     @ManyToOne
     @JoinColumn(name = "product_id")
-    private ProductEntity productId;
+    private ProductEntity product;
 }
