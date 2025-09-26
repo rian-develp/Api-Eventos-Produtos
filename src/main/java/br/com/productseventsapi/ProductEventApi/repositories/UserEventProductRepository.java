@@ -1,7 +1,7 @@
 package br.com.productseventsapi.ProductEventApi.repositories;
 
-import br.com.productseventsapi.ProductEventApi.dtos.FindUserEventProductDetailsDTO;
-import br.com.productseventsapi.ProductEventApi.entities.UserEventProduct;
+import br.com.productseventsapi.ProductEventApi.entities.UserEventProductEntity;
+import br.com.productseventsapi.ProductEventApi.projections.UserEventProductProjection;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -10,30 +10,32 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface UserEventProductRepository extends JpaRepository<UserEventProduct, Integer> {
+public interface UserEventProductRepository extends JpaRepository<UserEventProductEntity, Integer> {
 
-    @Query(value = "SELECT users.username, " +
-            "products.product_name," +
-            "products.product_price, " +
-            "events.event_hour " +
-            "events.event_place " +
-            "FROM user_event_products " +
-            "JOIN events ON events.id = user_event_products.event_id " +
-            "JOIN users ON users.id = user_event_products.user_id " +
-            "JOIN products ON products.id = user_event_products.product_id",
+    @Query(value = "SELECT uep.id AS id, " +
+            "u.username AS username, " +
+            "p.product_name AS productName, " +
+            "p.product_price AS productPrice, " +
+            "e.event_hour AS eventHour, " +
+            "e.event_place AS eventPlace " +
+            "FROM user_event_products uep " +
+            "JOIN users u ON u.id = uep.user_id " +
+            "JOIN products p ON p.id = uep.product_id " +
+            "JOIN events e ON e.id = uep.event_id",
     nativeQuery = true)
-    List<FindUserEventProductDetailsDTO> findUserEventProductDetails();
+    List<UserEventProductProjection> findUserEventProductDetails();
 
-    @Query(value = "SELECT users.username, " +
-            "products.product_name," +
-            "products.product_price, " +
-            "events.event_hour " +
-            "events.event_place " +
-            "FROM user_event_products " +
-            "JOIN events ON events.id = user_event_products.event_id " +
-            "JOIN users ON users.id = user_event_products.user_id " +
-            "JOIN products ON products.id = user_event_products.product_id " +
-            "WHERE users.id = :id",
+    @Query(value = "SELECT uep.id AS id, " +
+            "u.username AS username, " +
+            "p.product_name AS productName, " +
+            "p.product_price AS productPrice, " +
+            "e.event_hour AS eventHour, " +
+            "e.event_place AS eventPlace " +
+            "FROM user_event_products uep " +
+            "JOIN events e ON e.id = uep.event_id " +
+            "JOIN users u ON u.id = uep.user_id " +
+            "JOIN products p ON p.id = uep.product_id " +
+            "WHERE e.id = :id",
             nativeQuery = true)
-    FindUserEventProductDetailsDTO findUserEventProductDetailsByUserId(@Param("id") String id);
+    List<UserEventProductProjection> findUserEventProductDetailsByEventId(@Param("id") String id);
 }

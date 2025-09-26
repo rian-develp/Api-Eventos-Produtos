@@ -1,6 +1,9 @@
 package br.com.productseventsapi.ProductEventApi.services.user;
 
-import br.com.productseventsapi.ProductEventApi.entities.UserEntity;
+import br.com.productseventsapi.ProductEventApi.dtos.user.CreateUserDTO;
+import br.com.productseventsapi.ProductEventApi.dtos.user.UserDTO;
+import br.com.productseventsapi.ProductEventApi.exceptions.UserNotFoundException;
+import br.com.productseventsapi.ProductEventApi.mappers.UserMapper;
 import br.com.productseventsapi.ProductEventApi.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,14 +18,21 @@ public class UserServiceImpl implements UserService{
 
 
     @Override
-    public List<UserEntity> findAllUsers() {
-        return repository.findAll();
+    public List<UserDTO> findAllUsers() {
+        var entitiesList = repository.findAll();
+        return entitiesList.stream().map(UserMapper::toDTO).toList();
     }
 
     @Override
-    public UserEntity findUserById(String id) {
-        return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Usuário não existe"));
+    public UserDTO findUserById(String id) {
+        var entity = repository.findById(id).orElseThrow(() -> new UserNotFoundException("Usuário não existe"));
+        return UserMapper.toDTO(entity);
+    }
+
+    @Override
+    public UserDTO createUser(CreateUserDTO dto){
+        var entity = repository.save(UserMapper.toEntity(dto));
+        return UserMapper.toDTO(entity);
     }
 
     @Override

@@ -1,10 +1,7 @@
 package br.com.productseventsapi.ProductEventApi.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -12,15 +9,18 @@ import java.time.LocalDateTime;
 @Table(name = "events")
 @Getter
 @Setter
-@AllArgsConstructor
+@RequiredArgsConstructor
 @NoArgsConstructor
 public class EventEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "id")
     private String id;
+    @NonNull
     @Column(name = "event_hour", nullable = false, unique = true)
     private LocalDateTime eventHour;
+    @NonNull
     @Column(name = "event_place", nullable = false)
     private String eventPlace;
 }

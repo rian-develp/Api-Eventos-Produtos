@@ -1,24 +1,25 @@
 package br.com.productseventsapi.ProductEventApi.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "users")
 @Getter
 @Setter
-@AllArgsConstructor
+@RequiredArgsConstructor
 @NoArgsConstructor
 public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "id", nullable = false)
     private String id;
+    @NonNull
     @Column(name = "username", length = 40, nullable = false)
     private String username;
+    @NonNull
     @Column(name = "userpassword", length = 20, nullable = false)
     private String userpassword;
+
 }
