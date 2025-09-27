@@ -7,10 +7,10 @@ import br.com.productseventsapi.ProductEventApi.entities.UserEntity;
 public class UserMapper {
 
     public static UserDTO toDTO(UserEntity entity){
-        return new UserDTO(entity.getId(), entity.getUsername(), entity.getUserpassword());
+        return new UserDTO(entity.getId(), entity.getUsername(), entity.getUseremail(), entity.getUserpassword());
     }
 
     public static UserEntity toEntity(CreateUserDTO dto){
-        return new UserEntity(dto.username(), dto.userpassword());
+        return new UserEntity(dto.username(), dto.useremail(), dto.userpassword());
     }
 }

@@ -30,6 +30,15 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    public UserDTO findUserByEmail(String email) {
+        var entity = repository.findUserByEmail(email);
+        if (entity != null)
+            return UserMapper.toDTO(entity);
+        else
+            throw new UserNotFoundException("Usuário não existe");
+    }
+
+    @Override
     public UserDTO createUser(CreateUserDTO dto){
         var entity = repository.save(UserMapper.toEntity(dto));
         return UserMapper.toDTO(entity);
