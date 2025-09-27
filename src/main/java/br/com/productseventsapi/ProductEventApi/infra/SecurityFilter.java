@@ -1,6 +1,6 @@
 package br.com.productseventsapi.ProductEventApi.infra;
 
-import br.com.productseventsapi.ProductEventApi.dtos.user.UserDTO;
+import br.com.productseventsapi.ProductEventApi.entities.UserEntity;
 import br.com.productseventsapi.ProductEventApi.repositories.UserRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -31,7 +31,7 @@ public class SecurityFilter extends OncePerRequestFilter {
         var login = tokenService.validateToken(token);
 
         if (login != null) {
-            UserDTO user = userRepository.findUserByEmail(login);
+            UserEntity user = userRepository.findUserByEmail(login);
             var authorities = Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"));
             var authentication = new UsernamePasswordAuthenticationToken(user, null, authorities);
             SecurityContextHolder.getContext().setAuthentication(authentication);
