@@ -31,6 +31,14 @@
 	</properties>
 	<dependencies>
 
+
+		<!--	Dependência para trabalhar com Swagger	-->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.8.13</version>
+		</dependency>
+
 		<!--	Dependência para trabalhar com 0Auth	-->
 		<dependency>
 			<groupId>com.auth0</groupId>

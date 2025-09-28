@@ -4,6 +4,7 @@ import br.com.productseventsapi.ProductEventApi.dtos.product.CreateProductDTO;
 import br.com.productseventsapi.ProductEventApi.dtos.product.ProductDTO;
 import br.com.productseventsapi.ProductEventApi.response.ResponseBodySuccessfull;
 import br.com.productseventsapi.ProductEventApi.services.product.ProductService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/products")
+@Tag(name = "Produtos", description = "Operações relacionadas a produtos")
 public class ProductController {
 
     @Autowired

@@ -5,6 +5,7 @@ import br.com.productseventsapi.ProductEventApi.dtos.user.UserDTO;
 import br.com.productseventsapi.ProductEventApi.response.ResponseBodyError;
 import br.com.productseventsapi.ProductEventApi.response.ResponseBodySuccessfull;
 import br.com.productseventsapi.ProductEventApi.services.user.UserService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/users")
+@Tag(name = "Usuários", description = "Operações relacionadas a usuários")
 public class UserController {
 
     @Autowired
