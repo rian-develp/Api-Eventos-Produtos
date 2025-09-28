@@ -18,8 +18,12 @@ public class UserEntity {
     @NonNull
     @Column(name = "username", length = 40, nullable = false)
     private String username;
-    @NonNull
-    @Column(name = "userpassword", length = 20, nullable = false)
-    private String userpassword;
 
+    @NonNull
+    @Column(name = "useremail", length = 30, nullable = false, unique = true)
+    private String useremail;
+
+    @NonNull
+    @Column(name = "userpassword", nullable = false)
+    private String userpassword;
 }

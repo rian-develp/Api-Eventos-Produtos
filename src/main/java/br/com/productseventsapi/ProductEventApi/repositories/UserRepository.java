@@ -15,4 +15,8 @@ public interface UserRepository extends JpaRepository<UserEntity, String> {
     @Transactional
     @Query(value = "DELETE FROM users WHERE id = :id", nativeQuery = true)
     void deleteUserById(@Param("id") String id);
+
+    @Query(value = "SELECT * FROM users WHERE useremail = :email", nativeQuery = true)
+    UserEntity findUserByEmail(@Param("email") String email);
+
 }

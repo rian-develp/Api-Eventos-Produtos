@@ -25,8 +25,17 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public UserDTO findUserById(String id) {
-        var entity = repository.findById(id).orElseThrow(() -> new UserNotFoundException("Usuário não existe"));
+        var entity = repository.findById(id).orElseThrow(() -> new UserNotFoundException("User not found"));
         return UserMapper.toDTO(entity);
+    }
+
+    @Override
+    public UserDTO findUserByEmail(String email) {
+        var entity = repository.findUserByEmail(email);
+        if (entity != null)
+            return UserMapper.toDTO(entity);
+        else
+            throw new UserNotFoundException("User not found");
     }
 
     @Override

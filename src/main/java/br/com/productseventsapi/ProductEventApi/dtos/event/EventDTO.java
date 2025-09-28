@@ -5,6 +5,6 @@ import java.time.LocalDateTime;
 public record EventDTO(
         String id,
         LocalDateTime eventHour,
-        String eventPlace
+        String eventLocation
 ) {
 }
