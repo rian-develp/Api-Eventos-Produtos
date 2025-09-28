@@ -24,7 +24,7 @@ public class EventServiceImpl implements EventService{
 
     @Override
     public EventDTO findEventById(String id) {
-        var entity = repository.findById(id).orElseThrow(() -> new EventNotFoundException("Evento não existe"));
+        var entity = repository.findById(id).orElseThrow(() -> new EventNotFoundException("Event not found"));
         return EventMapper.toDTO(entity);
     }
 

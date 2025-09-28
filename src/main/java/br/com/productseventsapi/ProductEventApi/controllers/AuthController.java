@@ -30,9 +30,9 @@ public class AuthController {
         var user = repository.findUserByEmail(dto.useremail());
 
         if (user == null)
-            throw new UserNotFoundException("Usuário não encontrado");
+            throw new UserNotFoundException("User not found");
 
-        if (encoder.matches(user.getUserpassword(), dto.userpassword())){
+        if (encoder.matches(dto.userpassword(), user.getUserpassword())){
             String token = tokenService.generateToken(user);
             return ResponseEntity.ok(new ResponseDTO(user.getUsername(), token));
         }
@@ -52,13 +52,13 @@ public class AuthController {
             entity.setUserpassword(encoder.encode(dto.userpassword()));
             repository.save(entity);
 
-            if (encoder.matches(user.getUserpassword(), dto.userpassword())){
+            if (encoder.matches(dto.userpassword(), entity.getUserpassword())){
                 String token = tokenService.generateToken(entity);
                 return ResponseEntity.ok(new ResponseDTO(entity.getUsername(), token));
             }
         }
 
 
-        return ResponseEntity.badRequest().build();
+        return ResponseEntity.badRequest().body(user);
     }
 }

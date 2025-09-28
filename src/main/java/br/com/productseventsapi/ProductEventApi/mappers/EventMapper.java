@@ -8,10 +8,10 @@ public class EventMapper {
 
     public static EventDTO toDTO(EventEntity entity){
         return new EventDTO(entity.getId(), entity.getEventHour(),
-                entity.getEventPlace());
+                entity.getEventLocation());
     }
 
     public static EventEntity toEntity(CreateEventDTO dto){
-        return new EventEntity(dto.eventHour(), dto.eventPlace());
+        return new EventEntity(dto.eventHour(), dto.eventLocation());
     }
 }

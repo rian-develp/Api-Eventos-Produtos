@@ -30,7 +30,7 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public ProductDTO findProductById(Integer id) {
-        var entity = repository.findById(id).orElseThrow(() -> new ProductNotFoundException("Produto não existe"));
+        var entity = repository.findById(id).orElseThrow(() -> new ProductNotFoundException("Product not found"));
         return ProductMapper.toDTO(entity);
     }
 

@@ -30,6 +30,25 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
+
+                        // Liberação dos endpoints de 'User'
+                        .requestMatchers(HttpMethod.GET, "/users/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/users/**").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "/users/**").permitAll()
+
+                        // Liberação dos endpoints de Product
+                        .requestMatchers(HttpMethod.GET, "/products/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/products/**").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "/products/**").permitAll()
+
+                        // Liberação dos endpoints de Event
+                        .requestMatchers(HttpMethod.GET, "/events/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/events/**").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "/events/**").permitAll()
+
+                        // Liberação dos endpoints de UserEventProduct
+                        .requestMatchers(HttpMethod.GET, "/usereventproducts/**").permitAll()
+
                         .anyRequest().authenticated()
                 ).addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
 
@@ -37,7 +56,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public BCryptPasswordEncoder encoder(String userpassword){
+    public BCryptPasswordEncoder encoder(){
         return new BCryptPasswordEncoder();
     }
 

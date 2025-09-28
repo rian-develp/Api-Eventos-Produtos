@@ -17,7 +17,7 @@ public interface UserEventProductRepository extends JpaRepository<UserEventProdu
             "p.product_name AS productName, " +
             "p.product_price AS productPrice, " +
             "e.event_hour AS eventHour, " +
-            "e.event_place AS eventPlace " +
+            "e.event_location AS eventLocation " +
             "FROM user_event_products uep " +
             "JOIN users u ON u.id = uep.user_id " +
             "JOIN products p ON p.id = uep.product_id " +
@@ -30,7 +30,7 @@ public interface UserEventProductRepository extends JpaRepository<UserEventProdu
             "p.product_name AS productName, " +
             "p.product_price AS productPrice, " +
             "e.event_hour AS eventHour, " +
-            "e.event_place AS eventPlace " +
+            "e.event_location AS eventLocation " +
             "FROM user_event_products uep " +
             "JOIN events e ON e.id = uep.event_id " +
             "JOIN users u ON u.id = uep.user_id " +

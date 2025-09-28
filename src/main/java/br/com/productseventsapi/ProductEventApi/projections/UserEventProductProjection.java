@@ -9,5 +9,5 @@ public interface UserEventProductProjection {
     String getProductName();
     BigDecimal getProductPrice();
     LocalDateTime getEventHour();
-    String getEventPlace();
+    String getEventLocation();
 }
