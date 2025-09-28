@@ -59,6 +59,6 @@ public class EventController {
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteEventById(@PathVariable String id){
-        return ResponseEntity.ok("Evento deletado com sucesso");
+        return ResponseEntity.ok("Event deleted successfully");
     }
 }
