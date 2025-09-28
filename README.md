@@ -1,4 +1,4 @@
-# 📦 Nome do Projeto
+# 📦 Api-Eventos-Produtos
 
 Projeto desenvolvido com Spring Boot que expõe uma API REST, protegida com Auth0, utilizando MySQL como banco de dados 
 e Swagger para documentação interativa.
