@@ -5,6 +5,7 @@ import br.com.productseventsapi.ProductEventApi.exceptions.EventNotFoundExceptio
 import br.com.productseventsapi.ProductEventApi.response.ResponseBodyError;
 import br.com.productseventsapi.ProductEventApi.response.ResponseBodySuccessfull;
 import br.com.productseventsapi.ProductEventApi.services.event.EventService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/events")
+@Tag(name = "Eventos", description = "Operações relacionadas a eventos")
 public class EventController {
 
     @Autowired
