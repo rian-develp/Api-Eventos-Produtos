@@ -3,6 +3,7 @@ package br.com.productseventsapi.ProductEventApi.controllers;
 import br.com.productseventsapi.ProductEventApi.projections.UserEventProductProjection;
 import br.com.productseventsapi.ProductEventApi.response.ResponseBodySuccessfull;
 import br.com.productseventsapi.ProductEventApi.services.usereventproduct.UserEventProductService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/usereventproducts")
+@Tag(name = "Tabela intermedária entre usuários, produtos e eventos", description = "Operações relacionadas a detalhes do evento")
 public class UserEventProductController {
 
     @Autowired
