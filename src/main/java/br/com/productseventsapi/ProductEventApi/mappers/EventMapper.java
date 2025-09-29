@@ -1,8 +1,8 @@
 package br.com.productseventsapi.ProductEventApi.mappers;
 
-import br.com.productseventsapi.ProductEventApi.dtos.event.CreateEventDTO;
-import br.com.productseventsapi.ProductEventApi.dtos.event.EventDTO;
-import br.com.productseventsapi.ProductEventApi.entities.EventEntity;
+import br.com.productseventsapi.ProductEventApi.adapters.in.rest.dtos.event.CreateEventDTO;
+import br.com.productseventsapi.ProductEventApi.adapters.in.rest.dtos.event.EventDTO;
+import br.com.productseventsapi.ProductEventApi.adapters.out.persistence.entities.EventEntity;
 
 public class EventMapper {
 
