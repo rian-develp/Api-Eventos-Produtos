@@ -1,8 +1,8 @@
 package br.com.productseventsapi.ProductEventApi.mappers;
 
-import br.com.productseventsapi.ProductEventApi.dtos.user.CreateUserDTO;
-import br.com.productseventsapi.ProductEventApi.dtos.user.UserDTO;
-import br.com.productseventsapi.ProductEventApi.entities.UserEntity;
+import br.com.productseventsapi.ProductEventApi.adapters.in.rest.dtos.user.CreateUserDTO;
+import br.com.productseventsapi.ProductEventApi.adapters.in.rest.dtos.user.UserDTO;
+import br.com.productseventsapi.ProductEventApi.adapters.out.persistence.entities.UserEntity;
 
 public class UserMapper {
 
